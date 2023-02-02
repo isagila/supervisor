@@ -11,6 +11,7 @@ class Project:
   def __init__(self, folder, storage, title, options):
     self._folder = os.path.join(folder, title)
     self._storage = os.path.join(storage, title)
+    self._title = title
     self._url = f"https://github.com/{options['repo']}.git"
     self._branch = options["branch"]
 
