@@ -55,7 +55,6 @@ class App:
           (not project.is_alive()) or
           need_new_logs
         ):
-          print(project.have_updates(), not project.is_alive(), need_new_logs)
           project.stop()
           project.update()
           project.run(today)

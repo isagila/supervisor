@@ -49,7 +49,7 @@ class Project:
     )
 
   def run(self, today):
-    self._log = TextFile("w", os.path.join(
+    self._log = TextFile("a", os.path.join(
       self._storage, "logs", f"log_{today}.txt"
     ))
     settings_path = os.path.join(self._storage, "project.json")
