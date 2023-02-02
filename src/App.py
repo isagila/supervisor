@@ -20,9 +20,12 @@ class App:
     self._period = 10
 
     self._projects = []
-    for title, options in JSONFile("watched.json").read().items():
+    for title, options in JSONFile("r", "watched.json").read().items():
       self._projects.append(Project(
-        os.path.join(self.)
+        self._folder,
+        self._storage,
+        title,
+        options
       ))
 
     if os.path.exists(self._folder):
