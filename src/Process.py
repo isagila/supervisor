@@ -17,7 +17,7 @@ class Process:
     return self._body.pid
   
   def is_alive(self):
-    return self._body.poll() is not None
+    return self._body.poll() is None
   
   def terminate(self):
     if self.is_alive():
