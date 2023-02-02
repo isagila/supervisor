@@ -1,0 +1,36 @@
+import subprocess
+
+class Process:
+
+  def __init__(self, command, output=None, cwd=None):
+    if output is None:
+      output = subproccess.DEVNULL
+
+    self._body = subproccess.Popen(
+      args = self._make_sudo(command).split(),
+      cwd = cwd,
+      stdout = output,
+      stderr = output
+    )
+  
+  def get_id(self):
+    return self._body.pid
+  
+  def is_alive(self):
+    return self._body.poll() is not None
+  
+  def terminate(self):
+    if self.is_alive():
+      self._body.terminate()
+
+  @staticmethod
+  def execute(command, cwd=None):
+    return subproccess.check_output(
+      args = Process._make_sudo(command).split(),
+      cwd = cwd,
+      stderr = subproccess.STDOUT
+    ).decode("utf8")
+  
+  @staticmethod
+  def _make_sudo(command):
+    return f"sudo {command}"
