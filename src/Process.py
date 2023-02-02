@@ -6,7 +6,7 @@ class Process:
     if output is None:
       output = subproccess.DEVNULL
 
-    self._body = subproccess.Popen(
+    self._body = subprocess.Popen(
       args = self._make_sudo(command).split(),
       cwd = cwd,
       stdout = output,
