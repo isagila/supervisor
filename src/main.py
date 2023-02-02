@@ -2,10 +2,8 @@ import os
 import sys
 import signal
 
-from utility import (
-  Process,
-  TextFile
-)
+from Process import Process
+from files import TextFile
 
 def main():
   pid_file = "pid"
