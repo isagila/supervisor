@@ -14,6 +14,7 @@ class Project:
     self._title = title
     self._url = f"https://github.com/{options['repo']}.git"
     self._branch = options["branch"]
+    self._command = options["command"]
 
     self._log = None
     self._process = None
