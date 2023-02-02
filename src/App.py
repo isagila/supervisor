@@ -71,7 +71,7 @@ class App:
   
   @staticmethod
   def _get_current_date():
-    return datetime.datetime.today.strftime("%d_%m_%Y")
+    return datetime.datetime.today().strftime("%d_%m_%Y")
 
   def _at_exit(self, *_):
     for project in self._projects:
