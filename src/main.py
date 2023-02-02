@@ -6,7 +6,7 @@ from Process import Process
 from files import TextFile
 
 def main():
-  pid_file = "pid"
+  pid_file = "pid.txt"
   if len(sys.argv) == 1:
     if os.path.exists(pid_file):
       print("Server is running")

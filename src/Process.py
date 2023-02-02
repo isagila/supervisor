@@ -4,7 +4,7 @@ class Process:
 
   def __init__(self, command, output=None, cwd=None):
     if output is None:
-      output = subproccess.DEVNULL
+      output = subprocess.DEVNULL
 
     self._body = subprocess.Popen(
       args = self._make_sudo(command).split(),
