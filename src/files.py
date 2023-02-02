@@ -24,7 +24,7 @@ class TextFile(File):
     return self._body.read()
   
   def readlines(self):
-    yield return self._body.readline()
+    yield self._body.readline()
 
   def write(self, value):
     self._body.write(str(value))
