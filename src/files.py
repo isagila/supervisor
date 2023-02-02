@@ -12,7 +12,7 @@ class File:
   def __exit__(self, exception_type, exception_value, traceback):
     self._body.close()
   
-  def close():
+  def close(self):
     self._body.close()
   
   def body(self):
