@@ -10,6 +10,7 @@ from files import (
   JSONFile,
   TextFile,
 )
+from Project import Project
 
 class App:
 
