@@ -79,5 +79,5 @@ class Project:
   def is_alive(self):
     if self._process is None:
       return False
-    return self._process._is_alive()
+    return self._process.is_alive()
   
