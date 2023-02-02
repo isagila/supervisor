@@ -55,7 +55,8 @@ class Project:
     settings_path = os.path.join(self._storage, "project.json")
     self._process = Process(
       f"{self._command} {settings_path}",
-      output = self._log.body()
+      output = self._log.body(),
+      cwd = self._folder
     )
   
   def have_updates(self):
