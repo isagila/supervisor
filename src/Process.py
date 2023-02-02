@@ -25,10 +25,10 @@ class Process:
 
   @staticmethod
   def execute(command, cwd=None):
-    return subproccess.check_output(
+    return subprocess.check_output(
       args = Process._make_sudo(command).split(),
       cwd = cwd,
-      stderr = subproccess.STDOUT
+      stderr = subprocess.STDOUT
     ).decode("utf8")
   
   @staticmethod
