@@ -36,7 +36,7 @@ class Project:
     with TextFile("w", settings_path) as file:
       file.write(settings_str)
 
-    root_folder = os.path.join(self._folder, "..")
+    root_folder = os.path.normpath(os.path.join(self._folder, ".."))
     if os.path.exists(os.path.join(self._folder)):
       Process.execute(
         f"rm -rf {self._title}",
