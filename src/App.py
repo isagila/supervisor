@@ -32,6 +32,8 @@ class App:
     if os.path.exists(self._folder):
       Process.execute(f"rm -rf {self._folder}")
     os.mkdir(self._folder)
+    if not os.path.exists(self._storage):
+      os.mkdir(self._storage)
   
     with TextFile("w", self._last_update) as file:
       file.write(self._get_current_date())
