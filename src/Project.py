@@ -58,8 +58,7 @@ class Project:
     return diff != ""
   
   def update(self):
-    if not self.is_alive():
-      Process.execute("git pull", cwd = self._folder)
+    Process.execute("git pull", cwd = self._folder)
 
   def stop(self):
     self._process.terminate()
