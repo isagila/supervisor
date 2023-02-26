@@ -16,7 +16,6 @@ class Project:
     self._branch = options["branch"]
     self._command = options["command"]
 
-    self._log = None
     self._process = None
   
   def install(self):
@@ -64,9 +63,7 @@ class Project:
 
   def stop(self):
     self._process.terminate()
-    self._log.close()
-
-    self._process = self._log = None
+    self._process = None
   
   def is_alive(self):
     if self._process is None:
