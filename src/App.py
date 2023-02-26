@@ -46,7 +46,7 @@ class App:
         if project.have_updates() or not project.is_alive():
           project.stop()
           project.update()
-          project.run(today)
+          project.run()
 
       time.sleep(self._period)
 
