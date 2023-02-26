@@ -17,7 +17,6 @@ class App:
   def __init__(self):
     self._folder = os.path.abspath("projects")
     self._storage = os.path.abspath("storage")
-    self._last_update = os.path.abspath("last_updated.txt")
     self._period = 10
 
     self._projects = []
@@ -34,9 +33,7 @@ class App:
     os.mkdir(self._folder)
     if not os.path.exists(self._storage):
       os.mkdir(self._storage)
-  
-    with TextFile("w", self._last_update) as file:
-      file.write(self._get_current_date())
+
     signal.signal(signal.SIGTERM, self._at_exit)
   
   def run(self):
