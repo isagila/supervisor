@@ -1,0 +1,7 @@
+{
+  "libello": {
+    "repo": "isagila/libello",
+    "branch": "main",
+    "command": "python3 src/main.py"
+  }
+}
