@@ -1,7 +1,0 @@
-{
-  "example": {
-    "repo": "isagila/example",
-    "branch": "main",
-    "command": "python3 main.py"
-  }
-}

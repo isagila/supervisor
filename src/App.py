@@ -40,40 +40,18 @@ class App:
     signal.signal(signal.SIGTERM, self._at_exit)
   
   def run(self):
-    today = self._get_current_date()
     for project in self._projects:
       project.install()
-      project.run(today)
+      project.run()
     
     while True:
-      today = self._get_current_date()
-      need_new_logs = self._check_daily_log_update(today)
-
       for project in self._projects:
-        if (
-          project.have_updates() or
-          (not project.is_alive()) or
-          need_new_logs
-        ):
+        if project.have_updates() or not project.is_alive():
           project.stop()
           project.update()
           project.run(today)
 
       time.sleep(self._period)
-  
-  def _check_daily_log_update(self, today):
-    with TextFile("r", self._last_update) as file:
-      last_update = file.read()
-    
-    if last_update != today:
-      with TextFile("w", self._last_update) as file:
-        file.write(today)
-      return True
-    return False
-  
-  @staticmethod
-  def _get_current_date():
-    return datetime.datetime.today().strftime("%d_%m_%Y")
 
   def _at_exit(self, *_):
     for project in self._projects:

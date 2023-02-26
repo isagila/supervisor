@@ -32,7 +32,7 @@ def main():
       os.remove(pid_file)
       print("Server has been stopped")
     except Exception as exc:
-      print("While server stopping following exception occured:")
+      print("While server stopping following exception ocurred:")
       print(exc)
   
   else:

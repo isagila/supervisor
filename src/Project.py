@@ -19,14 +19,9 @@ class Project:
     self._log = None
     self._process = None
   
-  def _touch_folder(self, *parts): # create if not exists
-    path = os.path.join(*parts)
-    if not os.path.exists(path):
-      os.mkdir(path)
-
   def install(self):
-    self._touch_folder(self._storage)
-    self._touch_folder(self._storage, "logs")
+    if not os.path.exists(self._storage):
+      os.mkdir(self._storage)
 
     settings_path = os.path.join(self._storage, "project.json")
     settings_str = "{}"
@@ -48,14 +43,10 @@ class Project:
       cwd = root_folder
     )
 
-  def run(self, today):
-    self._log = TextFile("a", os.path.join(
-      self._storage, "logs", f"log_{today}.txt"
-    ))
+  def run(self):
     settings_path = os.path.join(self._storage, "project.json")
     self._process = Process(
       f"{self._command} {settings_path}",
-      output = self._log.body(),
       cwd = self._folder
     )
   
