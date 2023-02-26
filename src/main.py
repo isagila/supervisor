@@ -18,7 +18,7 @@ def main():
       print("Server is already running")
       return
     with TextFile("w", pid_file) as file:
-      file.write(Process("python3 App.py").get_id())
+      file.write(Process("python3 src/App.py").get_id())
     print("Server has been started")
   
   elif sys.argv[1] == "stop":
